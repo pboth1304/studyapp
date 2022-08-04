@@ -1,0 +1,28 @@
+{
+  "root": "apps/brainrecord-e2e",
+  "sourceRoot": "apps/brainrecord-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/brainrecord-e2e/cypress.json",
+        "devServerTarget": "brainrecord:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "brainrecord:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/brainrecord-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["brainrecord"]
+}

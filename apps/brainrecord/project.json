@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/brainrecord",
+  "sourceRoot": "apps/brainrecord/src",
+  "prefix": "studyapp",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/brainrecord",
+        "index": "apps/brainrecord/src/index.html",
+        "main": "apps/brainrecord/src/main.ts",
+        "polyfills": "apps/brainrecord/src/polyfills.ts",
+        "tsConfig": "apps/brainrecord/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/brainrecord/src/favicon.ico",
+          "apps/brainrecord/src/assets"
+        ],
+        "styles": ["apps/brainrecord/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/brainrecord/src/environments/environment.ts",
+              "with": "apps/brainrecord/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "brainrecord:build:production"
+        },
+        "development": {
+          "browserTarget": "brainrecord:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "brainrecord:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/brainrecord/src/**/*.ts",
+          "apps/brainrecord/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/brainrecord"],
+      "options": {
+        "jestConfig": "apps/brainrecord/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
