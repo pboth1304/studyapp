@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/brainrecord",
   "sourceRoot": "apps/brainrecord/src",
   "prefix": "studyapp",
   "targets": {
@@ -85,7 +85,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/brainrecord"],
       "options": {
-        "jestConfig": "apps/brainrecord/jest.config.js",
+        "jestConfig": "apps/brainrecord/jest.config.ts",
         "passWithNoTests": true
       }
     }

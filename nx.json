@@ -4,7 +4,6 @@
     "defaultBase": "main"
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular",
     "packageManager": "npm"
   },
   "implicitDependencies": {
@@ -18,23 +17,10 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "NzdjYWQ2YWUtMWNmMS00YmY2LTlkYmQtNjg3ZDk2NDZiN2MwfHJlYWQtd3JpdGU="
       }
     }
-  },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
   },
   "generators": {
     "@nrwl/angular:application": {
@@ -51,5 +37,11 @@
       "style": "scss"
     }
   },
-  "defaultProject": "brainrecord"
+  "defaultProject": "brainrecord",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
+    }
+  }
 }
