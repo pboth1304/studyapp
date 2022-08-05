@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Flashcard } from './models';
 
 @Component({
   selector: 'studyapp-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'brainrecord';
+  flashcards: Flashcard[] = [];
+
+  onFlashcardCreated(createdFlashcard: Flashcard): void {
+    this.flashcards = [...this.flashcards, createdFlashcard];
+  }
 }

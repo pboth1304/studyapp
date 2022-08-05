@@ -1,0 +1,43 @@
+<form
+  [formGroup]="newFlashcardForm"
+  class="flex flex-col w-full"
+  (ngSubmit)="addNewFlashcard()"
+>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Question</mat-label>
+    <textarea
+      formControlName="question"
+      matInput
+      placeholder="Write down your quesiton..."
+    ></textarea>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Answer</mat-label>
+    <textarea
+      formControlName="answer"
+      matInput
+      placeholder="Write down your answer..."
+    ></textarea></mat-form-field
+  ><mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Hint</mat-label>
+    <textarea
+      formControlName="hint"
+      matInput
+      placeholder="Write down your optional hint..."
+    ></textarea>
+  </mat-form-field>
+
+  <div class="flex self-end">
+    <button mat-button color="secondary" type="reset" class="mr-6">
+      Reset
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="newFlashcardForm.invalid"
+    >
+      Create Flashcard
+    </button>
+  </div>
+</form>
