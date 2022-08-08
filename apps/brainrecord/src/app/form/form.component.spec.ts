@@ -97,4 +97,20 @@ describe('FormComponent', () => {
     // then
     expect(submitBtnDisabledAttribute).toBeTruthy();
   });
+
+  it('should reset form after submitting form', () => {
+    // given
+    const question = 'My question';
+    const answer = 'My answer';
+    const hint = 'My hint';
+    const formValues = { answer, hint, question };
+    const expectedFormValues = { answer: '', hint: '', question: '' };
+
+    // when
+    component.newFlashcardForm.setValue(formValues);
+    component.addNewFlashcard();
+
+    // then
+    expect(component.newFlashcardForm.value).toEqual(expectedFormValues);
+  });
 });

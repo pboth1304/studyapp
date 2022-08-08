@@ -58,6 +58,7 @@ export class FormComponent {
       };
 
       this.flashcardCreated.emit(newFlashCard);
+      this.newFlashcardForm.reset();
     }
   }
 }

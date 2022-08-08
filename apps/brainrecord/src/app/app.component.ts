@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Flashcard } from './models';
+import { FlashcardsService } from './services/flashcards.service';
 
 @Component({
   selector: 'studyapp-root',
@@ -7,9 +9,11 @@ import { Flashcard } from './models';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  flashcards: Flashcard[] = [];
+  flashcards$: Observable<Flashcard[]> = this.flashcardService.flashcards$;
+
+  constructor(private flashcardService: FlashcardsService) {}
 
   onFlashcardCreated(createdFlashcard: Flashcard): void {
-    this.flashcards = [...this.flashcards, createdFlashcard];
+    this.flashcardService.addFlashcard(createdFlashcard);
   }
 }

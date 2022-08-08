@@ -1,2 +1,2 @@
 <studyapp-form (flashcardCreated)="onFlashcardCreated($event)"></studyapp-form>
-{{ flashcards | json }}
+{{ flashcards$ | async | json }}
