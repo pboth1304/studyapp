@@ -1,0 +1,13 @@
+<ng-container *ngIf="flashcards.length; else noFlashcards">
+  <studyapp-flashcard-list-item
+    *ngFor="let flashcard of flashcards; let i = index"
+    [position]="i + 1"
+    [flashcard]="flashcard"
+  ></studyapp-flashcard-list-item>
+</ng-container>
+
+<ng-template #noFlashcards>
+  <div class="bg-cyan-800 px-3 py-5 text-white" id="info-noFlashcards">
+    There are no flashcards yet.
+  </div>
+</ng-template>

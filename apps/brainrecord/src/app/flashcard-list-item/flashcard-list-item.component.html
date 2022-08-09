@@ -1,0 +1,17 @@
+<mat-card *ngIf="flashcard">
+  <mat-card-title class="flex items-center">
+    {{ answerVisible ? 'Answer' : 'Question' }}
+    <span class="font-bold text-slate-400 text-xl ml-2">#{{ position }}</span>
+    <mat-icon
+      class="ml-auto"
+      aria-hidden="false"
+      aria-label="Swap content"
+      (click)="toggleCardShown()"
+    >
+      swap_horiz
+    </mat-icon>
+  </mat-card-title>
+  <mat-card-content>
+    <p>{{ answerVisible ? flashcard.answer : flashcard.question }}</p>
+  </mat-card-content>
+</mat-card>

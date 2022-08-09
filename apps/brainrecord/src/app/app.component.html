@@ -1,2 +1,6 @@
 <studyapp-form (flashcardCreated)="onFlashcardCreated($event)"></studyapp-form>
-{{ flashcards$ | async | json }}
+
+<studyapp-flashcard-list
+  *ngIf="flashcards$ | async as flashcards"
+  [flashcards]="flashcards"
+></studyapp-flashcard-list>

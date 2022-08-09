@@ -1,5 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -30,6 +35,7 @@ interface FlashcardForm {
   ],
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent {
   @Output() flashcardCreated = new EventEmitter<Flashcard>();
@@ -59,6 +65,13 @@ export class FormComponent {
 
       this.flashcardCreated.emit(newFlashCard);
       this.newFlashcardForm.reset();
+      this.newFlashcardForm.markAsPristine();
+      this.newFlashcardForm.markAsUntouched();
+      this.newFlashcardForm.updateValueAndValidity();
+
+      for (const control in this.newFlashcardForm.controls) {
+        this.newFlashcardForm.get(control)?.setErrors(null);
+      }
     }
   }
 }

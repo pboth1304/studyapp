@@ -112,5 +112,7 @@ describe('FormComponent', () => {
 
     // then
     expect(component.newFlashcardForm.value).toEqual(expectedFormValues);
+    expect(component.newFlashcardForm.valid).toBeTruthy();
+    expect(component.newFlashcardForm.touched).toBeFalsy();
   });
 });
