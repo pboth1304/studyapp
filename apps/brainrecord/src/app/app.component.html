@@ -1,6 +1,18 @@
-<studyapp-form (flashcardCreated)="onFlashcardCreated($event)"></studyapp-form>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Create new flashcard </mat-panel-title>
+    </mat-expansion-panel-header>
 
-<studyapp-flashcard-list
-  *ngIf="flashcards$ | async as flashcards"
-  [flashcards]="flashcards"
-></studyapp-flashcard-list>
+    <studyapp-form
+      (flashcardCreated)="onFlashcardCreated($event)"
+    ></studyapp-form>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div class="mt-6">
+  <studyapp-flashcard-list
+    *ngIf="flashcards$ | async as flashcards"
+    [flashcards]="flashcards"
+  ></studyapp-flashcard-list>
+</div>

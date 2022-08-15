@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormComponent } from './form/form.component';
 import { FlashcardListComponent } from './flashcard-list/flashcard-list.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { FlashcardListComponent } from './flashcard-list/flashcard-list.componen
     BrowserAnimationsModule,
     FormComponent,
     FlashcardListComponent,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
